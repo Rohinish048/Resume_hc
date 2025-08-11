@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
+    <link rel="preload" as="image" href="./images/bgm.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style.css" />
@@ -58,8 +59,9 @@
             <div class="row flex-lg-row-reverse g-5 py-5 align-items-stretch">
                 <!-- Image col stays 4 -->
                 <div class="col-12 col-lg-4 d-flex border border-2 border-dark px-0" style="border-radius: 10px;">
-                    <img src="./images/coding.webp" class="w-100 h-100 object-fit-cover flex-fill"
-                        style="border-radius: 7px;" alt="Coding" loading="lazy">
+                    <img src="./images/coding.webp" loading="eager" fetchpriority="high"
+                        class="w-100 h-100 object-fit-cover flex-fill" style="border-radius: 7px;" alt="Coding"
+                        loading="lazy">
                 </div>
                 <div class="col-lg-8 col-12">
                     <p class="lead fs-3 fw-normal">"I am a passionate and detail-oriented web developer with a
