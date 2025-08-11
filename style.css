@@ -110,3 +110,35 @@ main { flex: 1 0 auto; }   /* grows to fill space; pushes footer down */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+/* Desktop keeps your current look */
+#navbar header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mobile: stack and center everything */
+@media (max-width: 768px) {
+  #navbar header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #navbar a.d-flex {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  #navbar ul.nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #navbar .nav-item {
+    text-align: center;
+  }
+}
+
