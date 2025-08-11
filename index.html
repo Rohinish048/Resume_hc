@@ -40,11 +40,12 @@
     </section>
 
 
-    <section id="hero" class="position-relative d-flex align-items-center"
-        style="background-image: url('./images/bgm.webp'); background-size: cover; background-position: center; margin-top: 0; padding-top: 0px; height:80vh;">
+    <section id="hero" class="position-relative d-flex align-items-center" style="height:80vh; overflow:hidden;">
+        <img src="./images/bgm.webp" loading="eager" fetchpriority="high" decoding="sync" alt="background"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
         <div class="container position-relative text-center">
-            <img class="d-block mx-auto mb-4" src="./images/myimgsq.jpg" alt="my image" height="200px" loading="eager"
-                fetchpriority="high" style="border-radius: 50%;">
+            <img class="d-block mx-auto mb-4" src="./images/myimgsq.jpg" loading="eager" fetchpriority="high"
+                alt="my image" height="200px" style="border-radius: 50%;">
             <div style=" display: inline-block; padding: 10px 20px; border-radius: 15px;">
                 <h1 class="display-6 fw-semibold text-body-emphasis mb-1">Hi, there!!</h1>
                 <h2 class="display-6 fw-semibold text-body-emphasis m-0">
@@ -60,7 +61,7 @@
             <div class="row flex-lg-row-reverse g-5 py-5 align-items-stretch">
                 <!-- Image col stays 4 -->
                 <div class="col-12 col-lg-4 d-flex border border-2 border-dark px-0" style="border-radius: 10px;">
-                    <img src="./images/coding.webp" loading="eager" fetchpriority="high"
+                    <img src="./images/coding.webp" 
                         class="w-100 h-100 object-fit-cover flex-fill" style="border-radius: 7px;" alt="Coding">
                 </div>
                 <div class="col-lg-8 col-12">
