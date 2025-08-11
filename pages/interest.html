@@ -4,19 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interests</title>
+    <title>My Interests</title>
     <link rel="preload" as="image" href="../images/badminton.webp">
     <link rel="preload" as="image" href="../images/songenthusiast.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+    
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            background-color: #FFFDD0;
+        }
+    
+        main {
+            min-height: 0;
+        }
+    
+        #footer svg {
+            display: block;
+        }
+    </style>
 </head>
 
 <body style="background-color:#FFFDD0">
+    <div class="page">
 
     <section id="navbar" class="bg-dark">
         <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-2">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-light text-decoration-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="32" fill="currentColor"
                         class="bi bi-r-square-fill text-danger me-2" viewBox="0 0 16 16">
@@ -40,8 +62,9 @@
         </div>
     </section>
 
+    <main>
     <section id="hobbies">
-        <div class="container">
+        <div class="container mt-4">
             <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary gradient-background">
                 <div class="col-lg-6 px-0 ">
                     <h1 class="display-4 fw-semibold" style="font-style: normal; font-family: inherit;">My Hobbies That
@@ -195,11 +218,12 @@
             </div>
         </div>
     </section>
+    </main>
 
 
     <section id="footer" class="bg-dark">
         <div class="container text-body-light text-light">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-2">
                 <div class="col-md-4 d-flex align-items-center"> <a href="/"
                         class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
                         <svg class="bi" width="30" height="24" aria-hidden="true">
@@ -225,6 +249,7 @@
             </footer>
         </div>
     </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
@@ -232,5 +257,3 @@
 </body>
 
 </html>
-
-
