@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Technicals</title>
+    <link rel="preload" as="image" href="/images/internship.webp">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style.css" />
@@ -54,9 +56,9 @@
                     <div class="carousel-item active">
                         <div class="d-flex flex-column align-items-center justify-content-center py-2 m-0">
                             <div class="position-relative w-75 mx-auto">
-                                <img src="../images/internship.webp" fetchpriority="high"
-                                    class="img-fluid w-100 d-block my-0 border border-2 border-dark bg-white"
-                                    alt="internship certificate" style="max-height:80vh; object-fit:contain;">
+                                <img src="../images/internship.webp" loading="eager" fetchpriority="high" decoding="sync" width="1600" height="1000"
+                                    class="img-fluid w-100 d-block my-0 border border-2 border-dark bg-white" alt="internship certificate"
+                                    style="max-height:80vh; object-fit:contain; aspect-ratio: 16 / 10;">
                                 <div
                                     class="position-absolute bottom-0 mb-4 start-50 translate-middle-x w-100 px-3 px-md-4">
                                     <div class=" text-white rounded-3 p-2 p-md-3 text-center"
@@ -148,6 +150,5 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 </body>
-
 
 </html>
