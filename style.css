@@ -2,14 +2,20 @@
 .carousel-caption.d-none.d-md-block {
   color: rgba(255, 251, 251, 0.81);
   background-color: rgba(42, 42, 42, 0.672);
-  border-radius: 10px;               /* was empty */
+  border-radius: 10px; /* was empty */
 }
 
 /* ===== Animated gradients (single keyframes, reused) ===== */
 @keyframes gradient-pan {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .gradient-background {
@@ -25,79 +31,172 @@
 }
 
 /* ===== Icons / avatar ===== */
-.icon-square { width: 1rem; height: 1rem; border-radius: 0.75rem; padding-top: 9px; }
-.profile-img { height: 100px; border-radius: 50%; }
-.main-text   { background-color: rgba(255, 255, 255, 0.672); }
-.span        { color: red; }
+.icon-square {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.75rem;
+  padding-top: 9px;
+}
+.profile-img {
+  height: 100px;
+  border-radius: 50%;
+}
+.main-text {
+  background-color: rgba(255, 255, 255, 0.672);
+}
+.span {
+  color: red;
+}
 
 /* ===== Cards / interest layout ===== */
-.card .col-4 { padding-right: 0 !important; }
-.card .col-4 img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card .col-4 {
+  padding-right: 0 !important;
+}
+.card .col-4 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-@media (min-width: 768px) and (max-width: 992px) { .interest-card { height: 320px; } }
-@media (min-width: 992px)                         { .interest-card { height: 250px; } }
+@media (min-width: 768px) and (max-width: 992px) {
+  .interest-card {
+    height: 320px;
+  }
+}
+@media (min-width: 992px) {
+  .interest-card {
+    height: 250px;
+  }
+}
+.interest-card .col-4 {
+  display: flex;
+  align-items: stretch;
+}
+.interest-card img {
+  height: 100%;
+  object-fit: cover;
+}
+.interest-card .row {
+  height: 100%;
+}
 
-.interest-card .col-4 { display: flex; align-items: stretch; }
-.interest-card img    { height: 100%; object-fit: cover; }
-.interest-card .row   { height: 100%; }
+#icon-grid h3 {
+  line-height: 1.4;
+}
 
-#icon-grid h3 { line-height: 1.4; }
-
-/* ===== Carousel arrows (custom thick chevrons) ===== */
+/* ===== Custom thick chevrons ===== */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-image: none;   /* override Bootstrap */
+  background-image: none; /* override Bootstrap */
   background-size: 100% 100%;
   filter: none;
-
   border: solid #000;
   border-width: 0 4px 4px 0;
   padding: 12px;
   display: inline-block;
 }
+.carousel-control-prev-icon {
+  transform: rotate(135deg);
+}
+.carousel-control-next-icon {
+  transform: rotate(-45deg);
+}
 
-.carousel-control-prev-icon { transform: rotate(135deg); }
-.carousel-control-next-icon { transform: rotate(-45deg); }
-
-/* Keep controls a bit inside without breaking small screens */
+/* MOBILE-FIRST: arrows at the very edges of the screen */
 .carousel-control-prev,
-.carousel-control-next { width: 5%; }
+.carousel-control-next {
+  width: 12%; /* generous tap target; tweak to taste */
+}
+.carousel-control-prev {
+  left: 0;
+}
+.carousel-control-next {
+  right: 0;
+}
 
+/* Make icons a bit smaller on very small phones */
+@media (max-width: 576px) {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    padding: 8px;
+    border-width: 0 3px 3px 0;
+  }
+}
+
+/* DESKTOP (lg+): pull arrows inward to align with your centered image */
 @media (min-width: 992px) {
-  .carousel-control-prev { left: 10%; }
-  .carousel-control-next { right: 10%; }
+  .carousel-control-prev {
+    left: 10%;
+  }
+  .carousel-control-next {
+    right: 10%;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
 }
 
 /* ===== Captions (responsive text) ===== */
-.caption-title { font-size: clamp(1rem, 1.6vw + 0.2rem, 1.5rem); margin-bottom: 0.25rem; }
-.caption-text  { font-size: clamp(0.85rem, 1.2vw + 0.2rem, 1.05rem); margin-bottom: 0.5rem; }
+.caption-title {
+  font-size: clamp(1rem, 1.6vw + 0.2rem, 1.5rem);
+  margin-bottom: 0.25rem;
+}
+.caption-text {
+  font-size: clamp(0.85rem, 1.2vw + 0.2rem, 1.05rem);
+  margin-bottom: 0.5rem;
+}
 
 @media (max-width: 420px) {
-  .carousel .caption-box { padding: 0.4rem 0.6rem; border-radius: 10px; }
+  .carousel .caption-box {
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px;
+  }
 }
 
 /* ===== Indicators dark theme ===== */
-.carousel-indicators [data-bs-target] { background-color: #000 !important; }
-.carousel-indicators .active          { background-color: #333 !important; }
+.carousel-indicators [data-bs-target] {
+  background-color: #000 !important;
+}
+.carousel-indicators .active {
+  background-color: #333 !important;
+}
 
 /* ===== Footer gap fixes (Chrome/Edge) ===== */
-html, body { height: 100%; margin: 0; }
-.page { min-height: 100%; display: flex; flex-direction: column; }
-
-main { flex: 1 0 auto; }   /* grows to fill space; pushes footer down */
-#footer { flex-shrink: 0; } /* footer stays at bottom but scrolls normally */
-
-#footer svg { display: block; } /* keep this one helpful rule */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+} /* grows to fill space; pushes footer down */
+#footer {
+  flex-shrink: 0;
+} /* footer stays at bottom but scrolls normally */
+#footer svg {
+  display: block;
+} /* keep this one helpful rule */
 
 /* Only when side-by-side (lg and up), make image match text column height */
 @media (min-width: 992px) {
-  #intro .intro-img { height: 100%; }
+  #intro .intro-img {
+    height: 100%;
+  }
   #intro .intro-img-el {
     height: 100%;
-    object-fit: cover;   /* fills the box without distortion */
+    object-fit: cover; /* fills the box without distortion */
     display: block;
   }
 }
+
+/* ===== Navbar spacing ===== */
 #navbar header {
   min-height: 64px; /* match navbar height */
   display: flex;
@@ -105,40 +204,750 @@ main { flex: 1 0 auto; }   /* grows to fill space; pushes footer down */
   padding-top: 0;
   padding-bottom: 0;
 }
-
 #navbar .nav-link {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-/* Desktop keeps your current look */
-#navbar header {
+/* ===== Lists ===== */
+ul {
+  padding-left: 1.2rem; /* Adjust until bullet aligns with text above */
+  margin-left: 0; /* Remove extra browser default margin */
+  list-style-position: outside; /* Keep bullets outside */
+}
+
+/* ===== Carousel internals ===== */
+.carousel-item .position-relative {
+  overflow: hidden;
+} /* prevents overlay spill */
+.carousel-item .position-absolute > .text-white {
+  padding: clamp(6px, 2vw, 16px);
+}
+.carousel-item h3 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+.carousel-item p {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+}
+.carousel-item h5 {
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+}
+
+/* On ultra-small devices, let the caption scroll instead of clipping */
+@media (max-width: 380px) {
+  .carousel-item .position-absolute > .text-white {
+    max-height: 50%;
+    overflow-y: auto;
+  }
+}
+
+/* Caption anchor offset */
+.caption-anchor {
+  bottom: 7% !important;
+}
+@media (max-width: 380px) {
+  .caption-anchor {
+    bottom: 12% !important;
+  }
+}
+
+/* Project carousel controls layout tweaks */
+#project .carousel {
+  overflow: visible;
+} /* 1) Don't clip the controls */
+#project .carousel-control-prev,
+#project .carousel-control-next {
+  z-index: 5;
+} /* Keep controls above everything */
+
+/* 2) XS phones: pin arrows to screen edges */
+@media (max-width: 420px) {
+  #project .carousel-control-prev,
+  #project .carousel-control-next {
+    position: absolute; /* anchor to viewport */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14vw; /* comfy tap target */
+    padding: 0;
+  }
+  #project .carousel-control-prev {
+    left: max(6px, env(safe-area-inset-left));
+  }
+  #project .carousel-control-next {
+    right: max(6px, env(safe-area-inset-right));
+  }
+}
+
+/* Desktop (you already had this behavior) */
+@media (min-width: 992px) {
+  #project .carousel-control-prev {
+    position: absolute;
+    left: 15%;
+    width: 5%;
+  }
+  #project .carousel-control-next {
+    position: absolute;
+    right: 15%;
+    width: 5%;
+  }
+}
+
+/* ===== Testimonial / Skills grid ===== */
+
+/* Generic reset for images in the section (kept simple to avoid conflicts) */
+#testimonial img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Final, controlled size for tech logos:
+   ~50px on desktop, shrinks on smaller screens to keep 4 per row */
+#testimonial .tech-logo {
+  width: clamp(40px, 6.5vw, 50px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Center logos inside each Bootstrap column */
+#testimonial .col {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-/* Mobile: stack and center everything */
-@media (max-width: 768px) {
-  #navbar header {
+/* Tiny phones: nudge a bit smaller */
+@media (max-width: 400px) {
+  #testimonial .tech-logo {
+    width: clamp(36px, 7.5vw, 44px);
+  }
+}
+
+/* (Fix) earlier small-screen rule needed a closing brace */
+@media (max-width: 576px) {
+  #testimonial img {
+    max-width: 80%;
+    height: auto;
+  }
+} /* <-- important: this brace was missing in your original file */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0 !important;
+} /* <-- ensure no bottom gap ever */
+html,
+body {
+  height: 100%;
+  margin: 0;
+} /* kill any default body margin */
+#footer svg {
+  display: block;
+} /* prevents inline SVG baseline gap */
+/* Make sure the header/footer never stretch in the flex column */
+#navbar,
+#footer {
+  flex: 0 0 auto;
+}
+
+/* Let main be the only thing that grows */
+main {
+  flex: 1 0 auto;
+}
+#navbar,
+#footer {
+  flex: 0 0 auto;
+}
+main {
+  flex: 1 0 auto;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+} /* belt + suspenders */
+/* Make the wrapper own the layout */
+html,
+body {
+  height: auto;
+  margin: 0;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Let main stretch; header/footer stay natural height */
+main {
+  flex: 1 0 auto;
+}
+#navbar,
+#footer {
+  flex: 0 0 auto;
+}
+
+/* Kill any accidental top/bottom margin bleed from first/last sections */
+.page > :first-child {
+  margin-top: 0;
+}
+.page > :last-child {
+  margin-bottom: 0;
+}
+
+/* Universal layout — one source of truth */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+#navbar,
+#footer {
+  flex: 0 0 auto;
+}
+
+/* Prevent first/last child margins from creating ghost gaps */
+.page > :first-child {
+  margin-top: 0;
+}
+.page > :last-child {
+  margin-bottom: 0;
+}
+
+/* If any page still has footer with mt-3, neutralize it */
+#footer.mt-3 {
+  margin-top: 0 !important;
+}
+/* Make the outer card act as the height reference */
+
+/* Ensure the inner row/cols can stretch */
+.interest-card .row {
+  height: 100%;
+}
+
+/* (Important) Do NOT put .interest-card on inner children anymore */
+
+/* 1) Height utility used by your cards */
+@media (min-width: 768px) {
+  .h-md-250 {
+    height: 250px;
+  } /* same height for every card at md+ */
+}
+/* bump it if you want taller cards on lg+ */
+/* @media (min-width: 992px) { .h-md-250 { height: 300px; } } */
+
+/* 2) Make the inner row & columns fill that height */
+.card.h-md-250 > .row {
+  height: 100%;
+}
+
+.card.h-md-250 > .row > [class^="col"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* 3) Image always fills its side neatly */
+.card.h-md-250 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* (optional) tighten the image column padding if needed */
+.card .col-auto {
+  padding: 0;
+}
+
+/* === Equal heights on md+ (matches your actual markup) === */
+@media (min-width: 768px) {
+  .h-md-250 {
+    height: 250px;
+  } /* change if you want 280/300px */
+  .h-md-250 > [class^="col"],
+  .h-md-250 > [class*=" col-"] {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
   }
-
-  #navbar a.d-flex {
-    justify-content: center;
-    margin-bottom: 0.5rem;
+  .h-md-250 .col-auto {
+    padding: 0;
   }
-
-  #navbar ul.nav {
-    justify-content: center;
-    width: 100%;
-  }
-
-  #navbar .nav-item {
-    text-align: center;
+  .h-md-250 .col-auto img {
+    width: 200px; /* keep your side image size */
+    height: 250px; /* matches h-md-250 for a perfect fit */
+    object-fit: cover;
+    display: block;
   }
 }
 
+/* === Small screens: turn image into background under the text === */
+.card-equal {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-equal .card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+/* readable text over the image on small screens only */
+@media (max-width: 991.98px) {
+  .card-equal .col {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    /* subtle dark-to-transparent wash for readability */
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.35)
+    );
+  }
+  .card-equal a {
+    color: #fff;
+  }
+}
+
+/* safety: no padding on image column when visible */
+.card-equal > .col-auto {
+  padding: 0;
+}
+/* === SMALL SCREENS: overlay mode text & panel === */
+@media (max-width: 991.98px) {
+  /* Make the whole card use light text by default */
+  .card-equal {
+    color: #fff !important;
+  }
+
+  /* The text column becomes a readable panel over the image */
+  .card-equal > .col {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.55) !important; /* change opacity/tone here */
+    padding: 1rem; /* safe padding */
+  }
+
+  /* Headings & paragraph (explicit so Bootstrap doesn't override) */
+  .card-equal > .col h1,
+  .card-equal > .col h2,
+  .card-equal > .col h3,
+  .card-equal > .col p {
+    color: #fff !important;
+  }
+
+  /* Category label that uses Bootstrap emphasis colors */
+  .card-equal > .col .text-primary-emphasis,
+  .card-equal > .col strong {
+    color: #ffdd57 !important;
+  } /* tweak */
+  .card-equal > .col h3 {
+    color: #ffdd57 !important;
+  }
+
+  /* Links on the overlay */
+  .card-equal > .col a {
+    color: #ffdd57 !important;
+  }
+  .card-equal > .col a:hover {
+    color: #ffd000 !important;
+  }
+
+  /* Optional: bit of pop for headings */
+  .card-equal > .col h3 {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Ensure the bg image actually sits behind the text */
+.card-equal {
+  position: relative;
+  overflow: hidden;
+}
+.card-equal .card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+/* No padding on the side image when visible on lg+ (keeps edges clean) */
+.card-equal > .col-auto {
+  padding: 0;
+}
+/* Slightly taller cards between 1200px and 991px */
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  .h-md-250 {
+    height: 290px; /* was 250px — adjust to taste */
+  }
+  .h-md-250 .col-auto img {
+    height: 290px; /* match image to card height */
+  }
+}
+/* Equal card heights for mobile */
+@media (max-width: 767.98px) {
+  .card-equal {
+    min-height: 220px; /* adjust as needed */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Make sure the background image fills */
+  .card-equal .card-bg {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Keep text area flexing to fill height */
+  .card-equal .col {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+}
+/* Equal vertical spacing from header and footer */
+#project {
+  margin-top: 2rem; /* space below header */
+  margin-bottom: 2rem; /* space above footer */
+}
+
+/* If you want the red background to include the spacing, use padding instead */
+#project {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+/* Phone-only: keep the #project section vertically centered
+   between header and footer with equal top/bottom space. */
+@media (max-width: 576.98px) {
+  /* make the page a full-height flex column (if not already) */
+  .page {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* header/footer keep natural height */
+  #navbar,
+  #footer {
+    flex: 0 0 auto !important;
+  }
+
+  /* main owns the remaining height and becomes a flex container */
+  main {
+    flex: 1 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* THIS is the centering: equal space above/below */
+  #project {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    /* keep your inner spacing from .py-2 */
+  }
+}
+/* Force both styles to the same bottom gap */
+#project .carousel .caption-anchor,
+#project .carousel .carousel-item .position-absolute.bottom-0 {
+  bottom: 1.5rem !important;
+  margin-bottom: 0 !important; /* neutralize mb-4 on the IEEE slide */
+}
+/* Keep arrows visible, but clip ONLY the slide content */
+#project .carousel {
+  overflow: visible;
+} /* arrows can sit outside */
+#project .carousel-inner,
+#project .carousel-item {
+  overflow: hidden;
+} /* no horizontal bleed */
+
+/* Borders on the image were adding extra pixels -> overflow */
+#project .carousel .img-fluid {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+/* === Ultra-small phones layout (≤ 360px) === */
+@media (max-width: 360px) {
+  /* 1) Make the page exactly one viewport tall and a flex column */
+  html,
+  body {
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 2) Header & footer pin to edges; kill any stray spacing */
+  #navbar,
+  #footer {
+    flex: 0 0 auto;
+    margin: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .page > :first-child {
+    margin-top: 0 !important;
+  }
+  .page > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 3) Main fills the middle and centers its content */
+  main {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  #project {
+    margin: 0 !important;
+  } /* no extra gap above/below */
+  #project .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* 4) Keep carousel stable: arrows visible, no sideways overflow */
+  #project .position-relative.w-75 {
+    width: 100% !important;
+  }
+  #project .carousel {
+    overflow: visible;
+  } /* arrows can sit outside */
+  #project .carousel-inner,
+  #project .carousel-item {
+    overflow: hidden;
+  } /* slides don’t bleed */
+  #project .carousel .img-fluid {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* 5) Keep arrow hit-areas modest so they don't cause overflow */
+  #project .carousel-control-prev,
+  #project .carousel-control-next {
+    width: 10vw;
+    max-width: 44px;
+  }
+}
+/* === Ultra-small screens: keep footer glued to bottom === */
+@media (max-width: 360px) {
+  /* Use the dynamic viewport so toolbars don’t create slack */
+  html,
+  body {
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Your wrapper is already flex; make it exactly one viewport tall */
+  .page {
+    min-height: 100dvh !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Let MAIN be the flex spacer that pushes the footer down */
+  main {
+    flex: 1 1 auto !important;
+    min-height: 0;
+  } /* min-height:0 is crucial */
+
+  /* Remove vertical margins on the project section that can lift the footer */
+  #project {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* If anything else tries to add space after main, force footer to the bottom */
+  #footer {
+    margin-top: auto !important;
+  }
+
+  /* Keep arrows & layout intact (no horizontal spill) */
+  #project .carousel {
+    overflow: visible;
+  }
+  #project .carousel-inner,
+  #project .carousel-item {
+    overflow: hidden;
+  }
+  #project .carousel .img-fluid {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+}
+/* ===== XS phones: sticky footer + centered PROJECT only (no HTML changes) ===== */
+@media (max-width: 360px) {
+  /* 0) No horizontal scroll anywhere */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 1) Page owns sticky footer; header/footer natural height */
+  .page {
+    min-height: 100svh !important; /* visual viewport height */
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #navbar,
+  #footer {
+    flex: 0 0 auto !important;
+  }
+
+  /* 2) Main is the spacer that pushes footer down; NOT a flex container */
+  main {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: block !important; /* prevents mid-screen footer */
+  }
+
+  /* 3) PROJECT page specifics: center the content, but only here */
+  #project {
+    margin: 0 !important; /* kills my-5 lifting footer */
+    padding: 1rem 0; /* keep some breathing room */
+  }
+  #project .container {
+    min-height: calc(100svh - 1px); /* available middle space */
+    display: flex;
+    align-items: center; /* vertical centering */
+    justify-content: center;
+  }
+
+  /* 4) Keep arrows visible; clip only slide content to prevent sideways scroll */
+  #project .carousel {
+    overflow: visible;
+  } /* arrows can sit outside */
+  #project .carousel-inner,
+  #project .carousel-item {
+    overflow: hidden;
+  }
+  #project .position-relative.w-75 {
+    width: 100% !important;
+  }
+  #project .img-fluid {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* 5) Footer sticks to bottom even when #project is short */
+  #footer {
+    margin-top: auto !important;
+  }
+}
+/* XS override: restore sticky-footer behavior, keep arrows */
+@media (max-width: 360px) {
+  /* make the page exactly the visible viewport height */
+  html,
+  body {
+    height: 100svh !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* let the wrapper own the column layout */
+  .page {
+    min-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* CRITICAL: main must NOT be a flex container here */
+  main {
+    display: block !important;
+    flex: 1 0 auto !important;
+    min-height: 0 !important;
+  }
+
+  /* don’t lift the footer by auto-margins on #project */
+  #project {
+    margin: 0 !important;
+  }
+
+  /* footer uses remaining space at the bottom */
+  #footer {
+    margin-top: auto !important;
+  }
+
+  /* leave arrows alone; just prevent sideways bleed from slides */
+  #project .carousel {
+    overflow: visible;
+  }
+  #project .carousel-inner,
+  #project .carousel-item {
+    overflow: hidden;
+  }
+  #project .carousel .img-fluid {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #fffdd0;
+}
+main {
+  min-height: 0;
+}
+#footer svg {
+  display: block;
+}
+
+/* XS phones: center a red panel, keep cream gutters */
+@media (max-width: 420px) {
+  /* 1) Stop the full-bleed red */
+  #project {
+    background: transparent !important;
+  }
+
+  /* 2) Put the red on the inner box and center it */
+  #project > .container {
+    background: #dc3545; /* same as .bg-danger */
+    border-radius: 12px;
+    max-width: 340px; /* tweak to taste (320–360px works) */
+    margin: 0 auto; /* center the red panel */
+    padding: 12px !important; /* undo the px-0 so you get gutters */
+  }
+
+  /* 3) Let the slide use the panel width (not 75%) */
+  #project .position-relative.w-75 {
+    width: 100% !important;
+  }
+}
+
+/* If you want this a bit wider, use 480px instead of 420px */
